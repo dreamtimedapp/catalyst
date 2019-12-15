@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+#cython: language_level=3
 #
 # Copyright 2014 Quantopian, Inc.
 #
@@ -120,6 +121,9 @@ ext_modules = [
         ['catalyst/data/_resample.pyx']
     ),
 ]
+
+for e in ext_modules:
+    e.cython_directives = {'language_level': "3"}
 
 STR_TO_CMP = {
     '<': lt,
